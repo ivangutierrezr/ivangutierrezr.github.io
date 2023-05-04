@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import './IGRNav.css';
 
-const pages = ['Profile', 'Skills', 'Projects'];
+const pages = ['profile', 'skills', 'projects'];
 
 const IGRNav = (props) => {
     console.log(window.location.href)
@@ -26,8 +26,11 @@ const IGRNav = (props) => {
         setAnchorElNav(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = (page) => {
         setAnchorElNav(null);
+        if (page) {
+            props.changeView(page)
+        }
     };
 
     return (
@@ -49,28 +52,28 @@ const IGRNav = (props) => {
                         <MenuIcon />
                         </IconButton>
                         <Menu
-                        id="menu-appbar"
-                        anchorEl={anchorElNav}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'left',
-                        }}
-                        keepMounted
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'left',
-                        }}
-                        open={Boolean(anchorElNav)}
-                        onClose={handleCloseNavMenu}
-                        sx={{
-                            display: { xs: 'block', md: 'none' },
-                        }}
-                        >
-                        {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">{page}</Typography>
-                            </MenuItem>
-                        ))}
+                            id="menu-appbar"
+                            anchorEl={anchorElNav}
+                            anchorOrigin={{
+                                vertical: 'bottom',
+                                horizontal: 'left',
+                            }}
+                            keepMounted
+                            transformOrigin={{
+                                vertical: 'top',
+                                horizontal: 'left',
+                            }}
+                            open={Boolean(anchorElNav)}
+                            onClose={() => handleCloseNavMenu()}
+                            sx={{
+                                display: { xs: 'block', md: 'none' },
+                            }}
+                            >
+                            {pages.map((page) => (
+                                <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
+                                    <Typography textAlign="center" >{page.toUpperCase()}</Typography>
+                                </MenuItem>
+                            ))}
                         </Menu>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
@@ -78,13 +81,13 @@ const IGRNav = (props) => {
                     </Box>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'flex-end' }}>
                         {pages.map((page) => (
-                        <Button
-                            key={page}
-                            onClick={handleCloseNavMenu}
-                            sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                            {page}
-                        </Button>
+                            <Button
+                                key={page}
+                                onClick={() => handleCloseNavMenu(page)}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                                {page.toUpperCase()}
+                            </Button>
                         ))}
                     </Box>
                 </Toolbar>

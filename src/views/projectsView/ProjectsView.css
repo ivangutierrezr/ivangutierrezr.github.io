@@ -1,0 +1,27 @@
+.cardTitle {
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 24px;
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif !important;
+}
+.cardSubtitle {
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.websiteLink {
+    color: #141c3a;
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif !important;
+    text-decoration: none;
+}

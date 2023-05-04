@@ -6,8 +6,6 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 
 import IGRTitle from '../../components/IGRTitle/IGRTitle'
-import IGRNav from '../../components/IGRNav/IGRNav'
-import IGRFooter from '../../components/IGRFooter/IGRFooter';
 
 import './SkillsView.css'
 
@@ -146,55 +144,51 @@ export default class SkillsView extends Component {
             margin: '10px 0'
         }
         return (
-            <div className='SkillsViewContent'>
-                <IGRNav />
-                <div className='mainContent'>
-                    <IGRTitle text={`Skills & Knowledge`}/>
-                    <Box sx={{ width: '100%', maxWidth: { xs: '80%', md: '800px' } }}>
-                        <Grid container spacing={{xs: 1, md: 2}}>
-                            {
-                                this.state.skills.map((skill, s) => {
-                                    return <Grid key={s} xs={12} md={skill.title == `LANGUAGES` ? 12 : 6}>
-                                        <Item>
-                                            <span style={titleStyle}>
-                                                {skill.title}
-                                            </span>
-                                            {
-                                                skill.title == `LANGUAGES` ? <Grid container spacing={{xs: 1, md: 2}}>
-                                                    {
-                                                        skill.items.map((item, i) => {
-                                                            return <Grid xs={12} md={6}>
-                                                                <Item key={i}>
-                                                                    <span style={subtitleStyle}>
-                                                                        {item.language}
-                                                                    </span>
-                                                                    <ul>
-                                                                        {
-                                                                            item.values.map((value, v) => {
-                                                                                return <li key={v}>{value.item}: {value.value}</li>
-                                                                            })
-                                                                        }
-                                                                    </ul>
-                                                                </Item>
-                                                            </Grid>
-                                                        })
-                                                    }
-                                                </Grid> : <ul>
-                                                    {
-                                                        skill.items.map((item, i) => {
-                                                            return <li key={i}>{item}</li>
-                                                        })
-                                                    }
-                                                </ul>
-                                            }
-                                        </Item>
-                                    </Grid>
-                                })
-                            }
-                        </Grid>
-                    </Box>
-                </div>
-                <IGRFooter />
+            <div className='mainContent'>
+                <IGRTitle text={`Skills & Knowledge`}/>
+                <Box sx={{ width: '100%', maxWidth: { xs: '80%', md: '800px' } }}>
+                    <Grid container spacing={{xs: 1, md: 2}}>
+                        {
+                            this.state.skills.map((skill, s) => {
+                                return <Grid key={s} xs={12} md={skill.title == `LANGUAGES` ? 12 : 6}>
+                                    <Item>
+                                        <span style={titleStyle}>
+                                            {skill.title}
+                                        </span>
+                                        {
+                                            skill.title == `LANGUAGES` ? <Grid container spacing={{xs: 1, md: 2}}>
+                                                {
+                                                    skill.items.map((item, i) => {
+                                                        return <Grid xs={12} md={6}>
+                                                            <Item key={i}>
+                                                                <span style={subtitleStyle}>
+                                                                    {item.language}
+                                                                </span>
+                                                                <ul>
+                                                                    {
+                                                                        item.values.map((value, v) => {
+                                                                            return <li key={v}>{value.item}: {value.value}</li>
+                                                                        })
+                                                                    }
+                                                                </ul>
+                                                            </Item>
+                                                        </Grid>
+                                                    })
+                                                }
+                                            </Grid> : <ul>
+                                                {
+                                                    skill.items.map((item, i) => {
+                                                        return <li key={i}>{item}</li>
+                                                    })
+                                                }
+                                            </ul>
+                                        }
+                                    </Item>
+                                </Grid>
+                            })
+                        }
+                    </Grid>
+                </Box>
             </div>
         )
     }
