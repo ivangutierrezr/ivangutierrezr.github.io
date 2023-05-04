@@ -1,0 +1,15 @@
+.contentIGRTitle {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: rgb(2, 0, 36);
+    background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(0, 212, 255, 1) 100%); */
+}
+
+.contentIGRTitle span {
+    color: #141c3a;
+    font-size: 48px;
+    font-family: 'Monserrat', sans-serif !important;
+}
